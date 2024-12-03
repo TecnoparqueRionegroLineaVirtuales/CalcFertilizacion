@@ -16,6 +16,7 @@ use App\Http\Livewire\Admin\Playlists;
 use App\Http\Livewire\User\PlaylistsUser;
 use App\Models\Playlist;
 use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\infoController;
 
 Route::get('home', HomeUser::class)->name('user.index');
 
@@ -30,6 +31,8 @@ Route::get('document', Documents::class)->name('user.document');
 Route::get('indicator', Indicators::class)->name('user.indicator');
 
 Route::get('/parameterCalculator', [CalculatorController::class, 'parameterCalculator'])->name('user.parameterCalculator');
+
+Route::get('/info', [infoController::class, 'info'])->name('user.info');
 
 Route::post('/process', [CalculatorController::class, 'process'])->name('user.process');
 

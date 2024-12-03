@@ -34,9 +34,9 @@
             </div>
             <!-- Enlaces -->
             <div class="space-x-6 text-gray-600">
-                <a href="#" class="hover:text-gray-800">Inicio</a>
-                <a href="#" class="hover:text-gray-800">¿Qué es la fertilización?</a>
-                <a href="#" class="hover:text-gray-800">Calculadora de fertilización</a>
+                <a href="{{ route('homeGuest') }}" class="hover:text-gray-800">Inicio</a>
+                <a href="{{ route('frontend.user.info') }}" class="hover:text-gray-800">¿Qué es la fertilización?</a>
+                <a href="{{ route('frontend.user.parameterCalculator') }}" class="hover:text-gray-800">Calculadora de fertilización</a>
             </div>
         </div>
     </nav>
@@ -66,7 +66,7 @@
                 </ul>
                 <div class="mt-8 flex justify-center lg:justify-start space-x-4">
                     <a href="{{ route('frontend.user.parameterCalculator') }}" class="px-6 py-3 bg-[#15803D] text-white font-semibold rounded-lg shadow-lg hover:bg-[#13692D] transition">Explorar ahora</a>
-                    <a href="#" class="px-6 py-3 bg-white border border-gray-300 text-gray-800 font-semibold rounded-lg hover:shadow-lg transition">Saber más</a>
+                    <a href="{{ route('frontend.user.info') }}" class="px-6 py-3 bg-white border border-gray-300 text-gray-800 font-semibold rounded-lg hover:shadow-lg transition">Saber más</a>
                 </div>
             </div>
 
