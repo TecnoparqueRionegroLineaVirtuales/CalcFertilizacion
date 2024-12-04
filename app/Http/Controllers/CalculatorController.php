@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CalculatorController extends Controller
 {
@@ -25,21 +26,21 @@ class CalculatorController extends Controller
              'age' => 'required|integer|min:0',
              'soil_test' => 'required|in:yes,no',
          ]);
- 
-         // Extraer los datos
-         $crop = $validated['crop'];
-         $age = $validated['age'];
-         $soilTest = $validated['soil_test'];
- 
+     
+         // Guardar los datos validados en la sesión
+         Session::put('crop', $validated['crop']);
+         Session::put('age', $validated['age']);
+         Session::put('soil_test', $validated['soil_test']);
+     
          // Redirigir según la respuesta del estudio de suelo
-         if ($soilTest === 'yes') {
+         if ($validated['soil_test'] === 'yes') {
              return redirect()->route('frontend.user.calculator', [
-                 'crop' => $crop,
-                 'age' => $age,
-                 'soil_test' => $soilTest,
+                 'crop' => $validated['crop'],
+                 'age' => $validated['age'],
+                 'soil_test' => $validated['soil_test'],
              ]);
-         }else{
-             return view ('livewire.user.aditionalParameter');
+         } else {
+             return view('livewire.user.aditionalParameter');
          }
      }
 
@@ -62,6 +63,7 @@ class CalculatorController extends Controller
 
     public function processAdditional(Request $request)
     {
+        // Validar las preguntas adicionales
         $validated = $request->validate([
             'terrain_inclination' => 'required|in:flat,inclined',
             'has_weather_station' => 'required|in:yes,no',
@@ -71,10 +73,21 @@ class CalculatorController extends Controller
             'climate' => 'nullable|in:cold,temperate,hot',
             'city' => 'nullable|string',
         ]);
-
+    
+        // Guardar los datos adicionales en la sesión
+        Session::put('terrain_inclination', $validated['terrain_inclination']);
+        Session::put('has_weather_station', $validated['has_weather_station']);
+        Session::put('location', $validated['location']);
+        Session::put('temperature', $validated['temperature']);
+        Session::put('rainfall', $validated['rainfall']);
+        Session::put('climate', $validated['climate']);
+        Session::put('city', $validated['city']);
+    
         $recommendations = $this->determineRecommendations($validated);
-
-        return view('livewire.user.report', ['recommendations' => $recommendations]);
+    
+        return view('livewire.user.report', [
+            'recommendations' => $recommendations,
+        ]);
     }
 
     private function determineRecommendations($data)
@@ -90,10 +103,10 @@ class CalculatorController extends Controller
             ];
         } elseif ($data['climate'] === 'cold') {
             $recommendations = [
-                'N' => 'Ajustado según análisis',
-                'P' => 'Ajustado según disponibilidad',
-                'K' => 'Ajustado según condiciones',
-                'Ca & Mg' => 'Ajustado según deficiencias',
+                'N' => '100-120 kg/ha/año',
+                'P' => '50-60 kg/ha/año',
+                'K' => '90-110 kg/ha/año',
+                'Ca & Mg' => '400-500 kg/ha/año',
             ];
         } elseif ($data['climate'] === 'temperate') {
             $recommendations = [

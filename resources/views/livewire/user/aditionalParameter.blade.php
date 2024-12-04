@@ -77,9 +77,9 @@
                 <div class="mb-6">
                     <label class="block text-gray-700 font-medium mb-2">Selecciona el clima de tu terreno:</label>
                     <select name="climate" class="w-full p-3 border border-gray-300 rounded-lg">
-                        <option value="cold">Frío</option>
-                        <option value="temperate">Templado</option>
-                        <option value="hot">Cálido</option>
+                        <option value="cold">Frío menor a 17°c</option>
+                        <option value="temperate">Templado entre 17°c y 24°c</option>
+                        <option value="hot">Cálido mayor a 24°c</option>
                     </select>
                 </div>
                 <div class="mb-6">

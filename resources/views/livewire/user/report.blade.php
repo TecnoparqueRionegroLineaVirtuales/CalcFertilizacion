@@ -34,10 +34,29 @@
 
         <div class="bg-white shadow-md rounded-lg p-8">
             <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                <h2 class="text-red-700">Los datos que se mencionan a continuación son solo una aproximación, si requieres un informe más preciso se recomienda realizar un estudio de suelo.</h2>
                 @foreach ($recommendations as $nutrient => $amount)
                     <li><strong class="text-gray-800">{{ $nutrient }}:</strong> {{ $amount }}</li>
                 @endforeach
             </ul>
+            <div class="bg-white shadow-md rounded-lg p-8">
+                <h2 class="text-xl font-bold mb-4">Resumen del cultivo</h2>
+                <ul class="text-gray-700">
+                    <li><strong>Cultivo:</strong> {{ session('crop') }}</li>
+                    <li><strong>Edad del cultivo:</strong> {{ session('age') }} años</li>
+                    <li><strong>Estudio de suelo:</strong> {{ session('soil_test') === 'yes' ? 'Sí' : 'No' }}</li>
+                    <li><strong>Inclinación del terreno:</strong> {{ session('terrain_inclination') }}</li>
+                    <li><strong>Estación meteorológica:</strong> {{ session('has_weather_station') === 'yes' ? 'Sí' : 'No' }}</li>
+                    @if(session('has_weather_station') === 'yes')
+                        <li><strong>Ubicación:</strong> {{ session('location') }}</li>
+                        <li><strong>Temperatura:</strong> {{ session('temperature') }} °C</li>
+                        <li><strong>Pluviosidad:</strong> {{ session('rainfall') }} mm</li>
+                    @else
+                        <li><strong>Clima:</strong> {{ session('climate') }}</li>
+                        <li><strong>Ciudad:</strong> {{ session('city') }}</li>
+                    @endif
+                </ul>
+            </div>
         </div>
 
         <div class="mt-6">

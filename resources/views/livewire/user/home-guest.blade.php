@@ -37,6 +37,10 @@
                 <a href="{{ route('homeGuest') }}" class="hover:text-gray-800">Inicio</a>
                 <a href="{{ route('frontend.user.info') }}" class="hover:text-gray-800">¿Qué es la fertilización?</a>
                 <a href="{{ route('frontend.user.parameterCalculator') }}" class="hover:text-gray-800">Calculadora de fertilización</a>
+                <!-- Botón de inicio de sesión -->
+                <a href="https://moodle.fertilizainteligente.com/" class="bg-[#15803D] text-white font-semibold shadow-lg hover:bg-[#13692D] transition px-4 py-2 rounded-lg">
+                    Aprende sobre fertilización
+                </a>
             </div>
         </div>
     </nav>
