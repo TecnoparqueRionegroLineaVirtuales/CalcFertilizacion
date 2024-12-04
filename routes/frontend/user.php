@@ -22,6 +22,8 @@ Route::get('home', HomeUser::class)->name('user.index');
 
 Route::get('calculator', Calculator::class)->name('user.calculator');
 
+Route::post('/process-additional', [CalculatorController::class, 'processAdditional'])->name('process.additional');
+
 Route::get('Stations', Stations::class)->name('user.station');
 
 Route::get('ResultsCalculatorData', ResultsCalculator::class)->name('user.resultsCalculator');
