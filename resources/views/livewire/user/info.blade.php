@@ -32,7 +32,7 @@
         <!-- Título -->
         <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Información del Proyecto</h1>
         <p class="text-lg text-gray-700 text-center mb-12">
-            Conoce más sobre nuestra calculadora de fertilización y cómo puede ayudarte en tus cultivos.
+            Este proyecto tiene como objetivo proporcionar herramientas innovadoras para la optimización del uso de fertilizantes, mejorando la calidad de los cultivos y contribuyendo a la sostenibilidad ambiental. A través de nuestra calculadora de fertilización, los agricultores pueden calcular los requerimientos específicos de nutrientes para sus suelos, optimizando el rendimiento y reduciendo el impacto negativo de fertilizantes en el medio ambiente.
         </p>
         
         <!-- Sección de fotos y texto -->
@@ -43,7 +43,7 @@
                 <p class="text-gray-700 mb-6">
                     Proveer herramientas innovadoras para optimizar el uso de fertilizantes, mejorando la calidad de los cultivos y reduciendo el impacto ambiental.
                 </p>
-                <img src="https://via.placeholder.com/600x400" alt="Foto misión" class="rounded-lg shadow-md">
+                <img src="{{ asset('img/1.jpg') }}" alt="Foto misión" class="rounded-lg shadow-md">
             </div>
             
             <!-- Bloque 2 -->
@@ -52,15 +52,15 @@
                 <p class="text-gray-700 mb-6">
                     Ser líderes en tecnología agrícola, transformando la forma en que los agricultores gestionan los nutrientes de sus suelos.
                 </p>
-                <img src="https://via.placeholder.com/600x400" alt="Foto visión" class="rounded-lg shadow-md">
+                <img src="{{ asset('img/2.jpg') }}" alt="Foto visión" class="rounded-lg shadow-md">
             </div>
         </div>
 
         <!-- Sección extra de fotos -->
         <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <img src="https://via.placeholder.com/300x300" alt="Foto 1" class="rounded-lg shadow-md">
-            <img src="https://via.placeholder.com/300x300" alt="Foto 2" class="rounded-lg shadow-md">
-            <img src="https://via.placeholder.com/300x300" alt="Foto 3" class="rounded-lg shadow-md">
+            <img src="{{ asset('img/3.jpg') }}" alt="Foto 1" class="rounded-lg shadow-md">
+            <img src="{{ asset('img/4.jpg') }}" alt="Foto 2" class="rounded-lg shadow-md">
+            <img src="{{ asset('img/5.jpg') }}" alt="Foto 3" class="rounded-lg shadow-md">
         </div>
     </div>
 
